@@ -62,16 +62,15 @@ class ToDo extends Component {
     markAsCompleted = id => {
         const {items} = this.state;
 
-        const foundTask = this.state.items.filter(
+        const foundTask = items.find(
             item => item.id === id
         );
 
-        foundTask.complete = true;
+        foundTask.complete = !foundTask.complete;
 
         this.setState({
             items:{
-              ...this.state.items,
-              foundTask  
+              ...this.state.items, 
             }
         })
     }
@@ -90,7 +89,7 @@ class ToDo extends Component {
     unComplete = id => {
         const {items} = this.state;
 
-        const foundTask = this.state.items.filter(
+        const foundTask = items.find(
             item => item.id === id
         );
 

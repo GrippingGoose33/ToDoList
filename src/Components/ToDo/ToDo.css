@@ -1,5 +1,5 @@
 .Todo {
-    background-color: white;
+    background-color: #f5f5f5;
     border-radius: 8px;
     border: 1px solid #e3e3e3;
     box-shadow: inset 0 1px 1px rgba(0,0,0,0.5);
@@ -17,7 +17,7 @@
 }
 
 .Todo ul li{
-    background-color: rgb(204, 116, 0);
+    background-color: rgb(240, 164, 65);
     border: 1px solid blue;
     display: flex;
     justify-content: space-around;
@@ -43,8 +43,13 @@
     cursor: pointer;
 }
 
-.Todo ul li .done {
+.Todo ul li .check {
     color: limegreen;
+    display: block;
+}
+
+.Todo ul li .uncheck {
+    color: #f8af0a;
     display: block;
 }
 
