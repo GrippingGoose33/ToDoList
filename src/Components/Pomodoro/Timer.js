@@ -40,6 +40,8 @@ class Timer extends Component {
                 message: 'Working!!!!!'
             }
         })
+
+        this.setTime(this.times.defaultTime);
     }
 
     setTimeForShortBreak = () => {
@@ -49,6 +51,8 @@ class Timer extends Component {
                 message: 'Taking a short break'
             }
         })
+
+        this.setTime(this.times.shortBreak);
     }
 
     setTimeForlongBreak = () => {
@@ -58,6 +62,59 @@ class Timer extends Component {
                 message: 'Taking a long break'
             }
         })
+
+        this.setTime(this.times.longBreak);
+    }
+
+    setTime = (newTime) => {
+        this.restartInterval();
+        this.setState({
+            time: newTime,
+        })
+    }
+
+    restartInterval = () => {
+        clearInterval();
+
+        this.interval = setInterval(this.countDown, 1000)
+    }
+
+    countDown =() => {
+        if(this.state.time === 0){
+            this.setState({
+                alert: {
+                    type: "Beep",
+                    message: "Beeeeeeeeeeeeeep",
+                }
+            })
+        }
+        else {
+            this.setState({
+                time: this.state.time - 1, 
+            })
+        }
+    }
+
+    displayTimer(seconds) {
+
+        let min = Math.floor((seconds /60)%60)
+        let sec = Math.floor(seconds%60)
+        let min0 = ""
+        let sec0 = "0"
+        if(min < 10){
+            min0 = "0"
+        }
+        else{
+            min0 = ""
+        }
+        if(sec < 10 ){
+            sec0 = "0"
+        }
+        else{
+            sec0 = ""
+        }
+
+        return min0 + min + ":" + sec0 + sec
     }
 
     render() {
@@ -69,7 +126,7 @@ class Timer extends Component {
                 </div>
                 
                 <div className = "timer">
-                    00:00:00.00
+                    {this.displayTimer(time)}
                 </div>
 
                 <div className = "types">
@@ -77,7 +134,7 @@ class Timer extends Component {
                         className = "start"
                         onClick = {this.setTimeForWork}
                     >
-                        start to workworkworkworkwork
+                        start to Work
                     </button>
                     <button 
                         className = "short"
