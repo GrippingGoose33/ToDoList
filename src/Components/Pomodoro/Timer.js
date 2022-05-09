@@ -86,18 +86,18 @@ class Timer extends Component {
                     type: "Beep",
                     message: "Beeeeeeeeeeeeeep",
                 }
-            })
+            });
         }
         else {
             this.setState({
                 time: this.state.time - 1, 
-            })
+            });
         }
     }
 
     displayTimer(seconds) {
 
-        let min = Math.floor((seconds /60)%60)
+        /*let min = Math.floor((seconds /60)%60)
         let sec = Math.floor(seconds%60)
         let min0 = ""
         let sec0 = "0"
@@ -114,7 +114,11 @@ class Timer extends Component {
             sec0 = ""
         }
 
-        return min0 + min + ":" + sec0 + sec
+        return min0 + min + ":" + sec0 + sec*/
+        let m = Math.floor(seconds / 60)
+        let s = Math.floor(seconds % 60)
+
+        return `${m< 10 ? '0' : ''}${m}:${s<10 ? '0': ''}${s}`;
     }
 
     render() {

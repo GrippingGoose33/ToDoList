@@ -1,0 +1,18 @@
+.Animation {
+    background-color: aquamarine;
+}
+
+.Animation .Cube {
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    transition: all 3s ease 0s;
+    transform: translate(1000px, 0%) rotate(180deg);
+}
+
+.Animation .Cubo {
+    width: 100px;
+    height: 100px;
+    background-color: yellow;
+    transition: all 3s ease 0s;
+}

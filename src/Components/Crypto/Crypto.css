@@ -1,0 +1,28 @@
+.Changer{
+    padding: 25px;
+    border: 2px solid black;
+    margin: 50px 50px 30px;
+    box-shadow: inset 0 2px 2px rgba(0,0,0,0.5);
+}
+
+.Changer .question{
+    font-size: 20px;
+    font-weight: bold;
+    color: green;
+}
+
+.Changer .CValue{
+    font-size: 15px;
+    padding: 20px;
+}
+
+.Changer .dolars{
+    border-radius: 50px;
+    background: rgb(100, 200, 100);
+    font-size: 15px;
+}
+.Changer .coins{
+    font-size: 25px;
+    color: rgb(240,180,10);
+    padding-top: 20px;
+}
