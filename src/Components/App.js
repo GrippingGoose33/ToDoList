@@ -7,15 +7,15 @@ import Content from '../Shared/Layout/Content.js';
 //import ToDo from './ToDo/ToDo.js';
 //import Timer from './Pomodoro/Timer.js';
 //import Crypto from './Crypto/Crypto';
-import Animation from './Animating/Animation';
-
+//import Animation from './Animating/Animation';
+import Number from './PureComponent/Number';
 
 function App() {
   return (
     <div className="App">
-      {/*<Header title="Mi app" url="https://github.com/" />*/}
+      <Header title="Mi app" url="https://github.com/" />
       <Content>
-        <Animation/> {/* <Home/> */}
+        <Number/> {/* <Home/> */}
       </Content>
       <Footer/> 
     </div>
