@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import NumbList from './NumbList';
+import './Number.css';
 
 class Number extends Component {
 
@@ -15,16 +15,21 @@ class Number extends Component {
     handleOnChange = e => {
         const{target:{value}} = e;
 
+        const numbers = Array.from(value);
+        const results = numbers.reduce((a, b) => Number(a) + Number(b), 0);
+
         this.setState({
             numero: value,
 
-            resultado: [this.state.numero]
+            resultado: [...this.state.resultado, results]
         })
 
     }
 
 
     render() {
+        const {resultado} = this.state;
+
         return (
             <div>
                 <h1>Suma de numeros continuos</h1>

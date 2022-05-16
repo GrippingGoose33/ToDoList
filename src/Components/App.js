@@ -8,14 +8,15 @@ import Content from '../Shared/Layout/Content.js';
 //import Timer from './Pomodoro/Timer.js';
 //import Crypto from './Crypto/Crypto';
 //import Animation from './Animating/Animation';
-import Number from './PureComponent/Number';
+//import Number from './PureComponent/Number';
+import Calculadora from './Calculadora/Calculadora.js';
 
 function App() {
   return (
     <div className="App">
       <Header title="Mi app" url="https://github.com/" />
       <Content>
-        <Number/> {/* <Home/> */}
+        <Calculadora/> {/* <Home/> */}
       </Content>
       <Footer/> 
     </div>
