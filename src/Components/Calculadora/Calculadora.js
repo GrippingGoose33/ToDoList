@@ -7,34 +7,62 @@ class Calculadora extends Component {
         super();
 
         this.state = {
-            numb1: '',
-            numb2: '',
-            calculo: '+',
+            numb1: 0,
+            numb2: 0,
+            calculo: 'Suma',
             result: 0,
         };
     }
 
     handleOnChange1 = e => {
-        const{target:{value1}} = e;
+        const{target:{value}} = e;
         this.setState({
-            numb1: Number(value1),
+            numb1: Number(value),
         })
 
     }
 
     handleOnChange2 = e => {
-        const{target:{value2}} = e;
+        const{target:{value}} = e;
         this.setState({
-            numb2: Number(value2),
+            numb2: Number(value),
         })
 
     }
 
-    calculoTotal = () => {
-        this.setState({
-            resultado: this.state.numb1 + this.state.numb2
-        })        
+    seleChange = e => {
+        const{target:{value}} = e;
 
+        this.setState({
+            calculo: value
+        })
+    }
+
+    calculoTotal = () => {
+        
+        if(this.state.calculo === "Suma"){
+            this.setState({
+                resultado: this.state.numb1 + this.state.numb2
+            })
+        }
+
+        if(this.state.calculo === "Resta"){
+            this.setState({
+                resultado: this.state.numb1 - this.state.numb2
+            })
+        }
+
+        if(this.state.calculo === "Multi"){
+            this.setState({
+                resultado: this.state.numb1 * this.state.numb2
+            })
+        }
+
+        if(this.state.calculo === "Divi"){
+            this.setState({
+                resultado: this.state.numb1 + this.state.numb2
+            })
+        }
     }
 
     render() {
@@ -44,25 +72,26 @@ class Calculadora extends Component {
                 <form className = "Valores">
                     <input
                         type="number"
-                        value1={this.state.numb1}
+                        value={this.state.numb1}
                         onChange={this.handleOnChange1}
                     />
                     
-                    <select>
-                        <option valor="+">+</option>
-                        <option valor="-">-</option>
-                        <option valor="*">*</option>
+                    <select onChange= {this.seleChange}>
+                        <option value="Suma">+</option>
+                        <option value="Resta">-</option>
+                        <option value="Multi">*</option>
+                        <option value="Divis">/</option>
                     </select>
                     
                     <input
                         type="number"
-                        value2={this.state.numb2}
+                        value={this.state.numb2}
                         onChange={this.handleOnChange2}
                     />
                 </form>
 
                 <button
-                    valor = {this.state.calculo}
+                    value = {this.state.calculo}
                     onClick = {this.calculoTotal}
                 >
                     Calcular
