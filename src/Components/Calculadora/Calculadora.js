@@ -59,8 +59,12 @@ class Calculadora extends Component {
         }
 
         if(this.state.calculo === "Divis"){
+
+            let resultados;
+            resultados = this.state.numb1 / this.state.numb2;
+
             this.setState({
-                resultado: this.state.numb1 / this.state.numb2
+                resultado: resultados.toFixed(2)
             })
         }
     }
