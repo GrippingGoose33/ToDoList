@@ -12,7 +12,9 @@ class Timer extends Component {
                 message: '',
             },
 
-            time: 0
+            time: 0,
+            plaing: false,
+            pause: false,
         };
 
         this.times = {
@@ -38,7 +40,8 @@ class Timer extends Component {
             alert:{
                 type: 'work',
                 message: 'Working!!!!!'
-            }
+            },
+            plaing: true
         })
 
         this.setTime(this.times.defaultTime);
@@ -49,7 +52,8 @@ class Timer extends Component {
             alert:{
                 type: 'shortBreak',
                 message: 'Taking a short break'
-            }
+            },
+            plaing: true
         })
 
         this.setTime(this.times.shortBreak);
@@ -60,7 +64,8 @@ class Timer extends Component {
             alert:{
                 type: 'longBreak',
                 message: 'Taking a long break'
-            }
+            },
+            plaing: true
         })
 
         this.setTime(this.times.longBreak);
@@ -74,7 +79,7 @@ class Timer extends Component {
     }
 
     restartInterval = () => {
-        clearInterval();
+        clearInterval(this.interval);
 
         this.interval = setInterval(this.countDown, 1000)
     }
@@ -95,26 +100,37 @@ class Timer extends Component {
         }
     }
 
+    pauseTime = () => {   
+
+        clearInterval(this.interval)
+        this.setState({
+            pause: true
+        })
+
+    }
+
+    contTime = () => {
+        this.interval = setInterval(this.countDown, 1000)
+        this.setState({
+            pause:false
+        })
+    }
+
+    stopTime = () => {
+        this.setState({
+            plaing: false,
+            time: 0,
+            pause: false,
+            alert:{
+                type: '',
+                message: ''
+            },
+        })
+        clearInterval(this.interval);
+        this.setDefaultTime();
+    }
+
     displayTimer(seconds) {
-
-        /*let min = Math.floor((seconds /60)%60)
-        let sec = Math.floor(seconds%60)
-        let min0 = ""
-        let sec0 = "0"
-        if(min < 10){
-            min0 = "0"
-        }
-        else{
-            min0 = ""
-        }
-        if(sec < 10 ){
-            sec0 = "0"
-        }
-        else{
-            sec0 = ""
-        }
-
-        return min0 + min + ":" + sec0 + sec*/
         let m = Math.floor(seconds / 60)
         let s = Math.floor(seconds % 60)
 
@@ -122,7 +138,7 @@ class Timer extends Component {
     }
 
     render() {
-        const {alert: {message, type}, time} = this.state;
+        const {alert: {message, type}, time, plaing, pause} = this.state;
         return (
             <div className = "Pomodoro">
                 <div className = {`alert ${type}`}>
@@ -153,6 +169,27 @@ class Timer extends Component {
                         Long Break
                     </button>
                 </div>
+
+                <div className = {plaing ? "cdown" : "canceled"}>
+                    <button
+                        onClick = {this.pauseTime}
+                        className={pause ? "continuar": "pausa"}
+                    >
+                        <i className={'fa fa-pause'}></i>
+                    </button>
+                    <button
+                        onClick = {this.contTime}
+                        className={pause ? "pausa": "continuar"}
+                    >
+                        <i className={'fa fa-play'}></i>
+                    </button>
+                    <button
+                        onClick = {this.stopTime}
+                    >
+                        <i className='fa fa-stop'></i>
+                    </button>
+                </div>
+
             </div>
         );
     }

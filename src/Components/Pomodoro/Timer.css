@@ -58,3 +58,19 @@
     border: 1px solid #dd962a;
     border-radius: 50px;
 }
+
+.Pomodoro .canceled {
+    opacity: 0;
+}
+
+.Pomodoro .cdown {
+    opacity: 1;
+}
+
+.Pomodoro .pausa{
+    opacity:1;
+}
+
+.Pomodoro .continuar{
+    opacity: 0;
+}
