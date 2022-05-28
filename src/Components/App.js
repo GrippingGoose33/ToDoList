@@ -5,7 +5,8 @@ import Footer from '../Shared/Layout/Footer.js';
 import Content from '../Shared/Layout/Content.js';
 //import ChartHome from './Chart/Charthome.js';
 //import ToDo from './ToDo/ToDo.js';
-import Timer from './Pomodoro/Timer.js';
+//import Timer from './Pomodoro/Timer.js';
+import Person from './Forms/Person';
 //import Crypto from './Crypto/Crypto';
 //import Animation from './Animating/Animation';
 //import Number from './PureComponent/Number';
@@ -16,7 +17,7 @@ function App() {
     <div className="App">
       {/*<Header title="Mi app" url="https://github.com/" />*/}
       <Content>
-        <Timer/> {/* <Home/> */}
+        <Person/> {/* <Home/> */}
       </Content>
       <Footer/> 
     </div>

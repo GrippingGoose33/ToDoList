@@ -1,0 +1,9 @@
+.Person .error {
+    border: 1px solid red;
+}
+
+.Person .errorMessage {
+    color: red;
+    font-size: 10px;
+}
+
