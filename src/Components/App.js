@@ -7,6 +7,8 @@ import Content from '../Shared/Layout/Content.js';
 //import ToDo from './ToDo/ToDo.js';
 //import Timer from './Pomodoro/Timer.js';
 import Person from './Forms/Person';
+import Popup from 'reactjs-popup';
+import 'reactjs-popup/dist/index.css';
 //import Crypto from './Crypto/Crypto';
 //import Animation from './Animating/Animation';
 //import Number from './PureComponent/Number';
